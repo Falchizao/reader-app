@@ -1,8 +1,5 @@
 {
   "*.{tsx,ts,json}": [
-    "pretty-quick --staged"
-  ],
-  "*.{tsx,ts}": [
     "eslint --max-warnings=0"
   ]
 }

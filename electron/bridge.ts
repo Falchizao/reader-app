@@ -16,6 +16,8 @@ export const api = {
   /**
    * Provide an easier way to listen to events
    */
+  // TODO: fix type Function
+  // eslint-disable-next-line @typescript-eslint/ban-types
   on: (channel: string, callback: Function) => {
     ipcRenderer.on(channel, (_, data) => callback(data))
   }
