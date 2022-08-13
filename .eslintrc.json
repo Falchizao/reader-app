@@ -7,22 +7,61 @@
   },
   "extends": [
     "standard",
-    "prettier"
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": [
     "react",
+    "react-hooks",
     "prettier",
     "@typescript-eslint"
   ],
   "rules": {
-    "react/prop-types": "off"
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/display-name": "off",
+    "camelcase": "off",
+    "react/prop-types": "off",
+    "space-before-function-paren": "off",
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+    "import/no-named-as-default": "off",
+    "no-use-before-define": "off",
+    "default-param-last": "off",
+    "multiline-ternary": "off",
+    "react-hooks/exhaustive-deps": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   }
 }
