@@ -11,12 +11,15 @@ function createWindow() {
     height: 700,
     backgroundColor: '#191622',
     webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true,
+      nodeIntegrationInSubFrames: true,
+      contextIsolation: false,
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
     }
   })
 
+  mainWindow.webContents.openDevTools({ activate: true, mode: 'right' })
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
   mainWindow.on('closed', () => {

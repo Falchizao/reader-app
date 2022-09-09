@@ -8,6 +8,11 @@
     "sourceMap": true,
     "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+    }
+  },
+  "include": ["src"],
 }
