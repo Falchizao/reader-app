@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-
+import { conversionXLSX } from '@/services/file/htmlToXlsx'
 import { parseDocxToHtml } from '@/services'
 
 export const useHome = () => {
@@ -8,8 +8,9 @@ export const useHome = () => {
   const [html, setHtml] = useState<string>('')
 
   const parseFile = useCallback(async () => {
-    const parsedDoc = await parseDocxToHtml(await file.arrayBuffer())
-    setHtml(parsedDoc)
+    const parsedDoc = await parseDocxToHtml(await file.arrayBuffer());
+    const parsedTables = await conversionXLSX(parsedDoc);
+    setHtml(parsedTables)
   }, [file])
 
   useEffect(() => {
