@@ -36,4 +36,14 @@ export const Content = styled.div`
     color: ${sg.colors.grey200 + sg.opacity[80]};
     text-align: center;
   }
+
+  ul {
+    margin-top: ${sg.spacing.medium};
+
+    li {
+      font-size: ${sg.fontSize.default};
+      color: ${sg.colors.red500 + sg.opacity[90]};
+      text-align: center;
+    }
+  }
 `

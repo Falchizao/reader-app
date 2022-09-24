@@ -1,15 +1,15 @@
-import { writeFile, utils } from "xlsx";
-const fs = require('fs')
+import { writeFile, utils } from 'xlsx'
 
-export const conversionXLSX = async (htmlTables: string
-): Promise<any> => {
-    var parsedHtml = new DOMParser().parseFromString(htmlTables, "text/html");
+export const conversionXLSX = (params: {
+  htmlTables: string
+  fileName: string
+}): void => {
+  const parsedHtml = new DOMParser().parseFromString(
+    params.htmlTables,
+    'text/html'
+  )
 
-    let exportableTables = parsedHtml.getElementsByTagName("table");
-
-    var wb = utils.table_to_book(exportableTables[0]);
-    writeFile(wb, "ParsedFile.xlsx" || ('ParsedFile.' + ('xlsx')));
-
-    return 'Seu arquivo está pronto'
-    
+  const exportableTables = parsedHtml.getElementsByTagName('table')
+  const generatedXlsx = utils.table_to_book(exportableTables[0])
+  writeFile(generatedXlsx, `./tmp/${params.fileName}.xlsx`)
 }
