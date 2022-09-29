@@ -2,10 +2,10 @@ import React from 'react'
 
 import { useHome } from './hooks/useHome'
 import * as S from './styles'
-import { DragOnDrop, Header } from '@/components'
+import { DragOnDrop, Header, DownloadButton } from '@/components'
 
 export const Home: React.FC = () => {
-  const { html, setFile } = useHome()
+  const { filePath, file, setFile } = useHome()
 
   return (
     <S.Container>
@@ -16,7 +16,10 @@ export const Home: React.FC = () => {
 
       <S.Content>
         <DragOnDrop setFile={setFile} />
-        {html}
+
+        {!!filePath && (
+          <DownloadButton href={filePath} bytesAmount={file?.size} />
+        )}
       </S.Content>
     </S.Container>
   )

@@ -33,6 +33,8 @@ export const sg = Object.freeze({
     large: '12px',
     xlarge: '16px',
     xxlarge: '24px',
-    xxxlarge: '34px'
+    xxxlarge: '34px',
+    xxxxlarge: '48px',
+    xxxxxlarge: '64px'
   }
 })
